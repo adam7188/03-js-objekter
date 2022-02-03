@@ -6,7 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+    section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-gap: 5px;
+    }
+
+    article {
+        border: 1px solid #333;
+        margin: 1rem;
+        padding: 1rem;
+    }
+</style>
+
 <body>
+    <section id="liste"></section>
+
+    <template>
+    <article id="event">
+        <img src="" alt="" />
+        <h3></h3>
+        <p class="instruktør"></p>
+        <p class="land"></p>
+        <p class="år"></p>
+    </article>
+    </template>
+
+<script>
+
+    window.addEventListener("DOMContentLoaded", visVideoer);
+
+    let videoer = [
+    {
+    navn: "A Caling",
+    instruktør: " Christian Bengtson | ",
+    billede: "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+    land: " Danmark | ",
+    år: "2019",
+    },
     
+    {
+    navn: "A Hole In My Heart",
+    instruktør: " Mees Peijnenburg | ",
+    billede: "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Q8K1pZrOs03Q0IrDkBwGVu5r-360.jpg",
+    land: " Holland | ",
+    år: "2015",
+    },
+    
+    {
+    navn: "A Place In The Sun - 110 years after the genocide",
+    instruktør: "Christian Zipfel | ",
+    billede: "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/hUd4SdGQ8I23ovxWnGtBz4Ck-360.jpg",
+    land: " Tyskland | ",
+    år: "2018",
+    },
+    
+    {
+    navn: "A Tower of Two",
+    instruktør: "Jacob Krzysztof Glogowski | ",
+    billede: "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Zdt2ODEqSVOkNe8nUaSSu8kd-360.jpg",
+    land: " Danmark | ",
+    år: "2019",
+    },
+    
+    {
+    navn: "A Woman Without Children",
+    instruktør: " Cecilie Kronborg Thomsen",
+    billede: "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/HRZBn8KLPmvVNvoJ4e8CzUVU-360.jpg",
+    land: " Danmark",
+    år: "2021",
+    },
+    
+    ];
+
+    function visVideoer(){
+    const container = document.querySelector("#liste");
+    const videoTemplate = document.querySelector("template");
+    //løb personlisten igennem og indsæt data i en template//
+    videoer.forEach(videoer => { 
+        //placer dyr i HTML//
+        let klon = videoTemplate.cloneNode(true).content;
+        klon.querySelector("h3").textContent = videoer.navn;
+        klon.querySelector(".instruktør").textContent = "instruktør:" + videoer.instruktør;
+        klon.querySelector("img").src = videoer.billede;    
+        klon.querySelector(".land").textContent = "land:" + videoer.land;
+        klon.querySelector(".år").textContent = "år:" + videoer.år;
+        container.appendChild(klon);
+    });
+}
+    </script>
 </body>
 </html>
