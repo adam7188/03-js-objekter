@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    article {
+        border: 1px solid #333;
+    }
+</style>
 <body>
     <section id="liste"></section>
-    <!-- <article id="dyr">
+    <section class="data-container"></section>
+    <template>
+    <article class="alleDyr">
         <h3></h3>
-        <p>Type: </p>
-        <p>Levested: </p>
+        <p class="type"></p>
+        <p class="levested"></p>
         <img src="" alt="">
-    </article> -->
+    </article> 
+    </template>
     <script>
         window.addEventListener("load", sidenVises);
         function sidenVises() {
@@ -58,6 +66,19 @@
     dyr.forEach(dyr => {
         listeVisning.innerHTML += `<p>${dyr.navn} ${dyr.type} ${dyr.levested}</p>`;
     })
+
+    // const container = document.querySelector(".data-container");
+    // const alleDyrTemplate = document.querySelector("template");
+    // //løb personlisten igennem og indsæt data i en template//
+    // dyr.forEach(dyr => { 
+    //     //placer dyr i HTML//
+    //     let klon = alleDyrTemplate.cloneNode(true).content;
+    //     klon.querySelector("h3").textContent = dyr.navn;
+    //     klon.querySelector(".type").textContent = dyr.type;
+    //     klon.querySelector(".levested").textContent = dyr.levested;
+    //     klon.querySelector("img").src = dyr.billede;
+    //     container.appendChild(klon);
+    // })
 
 
         //     {"navn": "gris", "type": "pattedyr", "levested": "svinefarm", "billede": "http://mabe-kea.dk/E19/pics/pig.png" },
