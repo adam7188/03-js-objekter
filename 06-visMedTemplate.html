@@ -74,8 +74,8 @@
         //placer dyr i HTML//
         let klon = alleDyrTemplate.cloneNode(true).content;
         klon.querySelector("h3").textContent = dyr.navn;
-        klon.querySelector(".type").textContent = dyr.type;
-        klon.querySelector(".levested").textContent = dyr.levested;
+        klon.querySelector(".type").textContent = "type:" + dyr.type;
+        klon.querySelector(".levested").textContent = "levested:" + dyr.levested;
         klon.querySelector("img").src = dyr.billede;    
         container.appendChild(klon);
     })
